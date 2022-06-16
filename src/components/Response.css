@@ -1,0 +1,90 @@
+.response_textarea {
+    height: 100%;
+    width: 100%;
+    border: 0;
+    font-family: "Lucida Console", "Courier New", monospace;
+    background-color: #F5F5F5;
+    color: #3B3C3E;
+    font-size: 16px;
+    /*font-weight: bold;*/
+    font-weight: 800;
+    left: -1px;
+    padding: 10px 7px 5px;
+    overflow:scroll;
+    overflow-x:hidden;
+}
+
+.DivToScroll{
+    background-color: #F5F5F5;
+    /*border: 1px solid #DDDDDD;*/
+    /*border-radius: 4px 0 4px 0;*/
+    color: #3B3C3E;
+    font-size: 12px;
+    font-weight: bold;
+    left: -1px;
+    padding: 10px 7px 5px;
+}
+
+.DivWithScroll{
+    height:120px;
+    overflow:scroll;
+    overflow-x:hidden;
+}
+
+/* Style the button that is used to open and close the collapsible content */
+.collapsible {
+    background-color: #eee;
+    color: #444;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 15px;
+}
+
+/* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+.active, .collapsible:hover {
+    background-color: #ccc;
+}
+
+/* Style the collapsible content. Note: hidden by default */
+.content {
+    padding: 0 18px;
+    display: none;
+    overflow: hidden;
+    background-color: #f1f1f1;
+}
+
+.response-step {
+    color: #5073dc;
+}
+
+.response-method {
+    color: #086d7d;
+    font-weight: bold;
+}
+
+.response-endpoint {
+    color: crimson;
+}
+
+.response-type {
+    color: #dc9002;
+}
+.response-tracking {
+    color: black;
+}
+
+.response-person {
+    color: #70c307;
+}
+
+.response-film {
+    color: sienna;
+}
+
+.response-planet {
+    color: crimson;
+}

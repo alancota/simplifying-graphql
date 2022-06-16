@@ -1,0 +1,110 @@
+
+:root {
+    --main-radius: 5px;
+    --main-padding: 5px;
+}
+
+body {
+    font-family: "Inter", sans-serif;
+}
+
+.container-main {
+    display: grid;
+    height: 100vh;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 0.2fr 1.5fr 1.2fr 0.8fr;
+    grid-template-areas:
+    "nav nav nav nav"
+    "sidebar response response response"
+    "sidebar response response response"
+    "sidebar response response response";
+    grid-gap: 0.2rem;
+    text-align: center;
+}
+
+nav {
+    background: #6d85dd;
+    grid-area: nav;
+    border-radius: var(--main-radius);
+    padding-top: var(--main-padding);
+}
+
+.response {
+    background: #ffffff;
+    grid-area: response;
+    border-radius: var(--main-radius);
+    padding-top: var(--main-padding);
+}
+
+#sidebar {
+    background: #ffffff;
+    grid-area: sidebar;
+    border-radius: var(--main-radius);
+    padding-top: var(--main-padding);
+    font-weight: 500;
+    /*text-transform: uppercase;*/
+    font-size: 16px;
+}
+
+footer {
+    background: #1de9b6;
+    grid-area: footer;
+    border-radius: var(--main-radius);
+    padding-top: var(--main-padding);
+}
+
+a {
+    text-align: center;
+    display: block;
+    font-family: inherit;
+    text-decoration: none;
+    font-weight: bold;
+    margin: 1rem;
+}
+
+.action-buttons {
+    width: 100%;
+    /*box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5);*/
+}
+
+.code {
+    background: #f4f4f4;
+    border: 1px solid #ddd;
+    border-left: 3px solid #f36d33;
+    color: #666;
+    page-break-inside: avoid;
+    font-family: monospace;
+    font-size: 13px;
+    line-height: 1.6;
+    margin-bottom: 1.6em;
+    max-width: 100%;
+    overflow: auto;
+    padding: 1em 1.5em;
+    display: block;
+    word-wrap: break-word;
+}
+
+.trigger {
+    font-family: monospace;
+    color: gray;
+    font-size: 14px;
+}
+
+.graphql-info {
+    background-color: #daf9e2;
+}
+
+@media only screen and (max-width: 550px) {
+    .container {
+        grid-template-columns: 1fr;
+        grid-template-rows: 0.4fr 0.4fr 2.2fr 1.2fr 1.2fr 1.2fr 1fr;
+        grid-template-areas:
+      "nav"
+      "sidebar"
+      "response"
+      "response"
+      "response"
+      "response"
+      "response";
+    }
+}
