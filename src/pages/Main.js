@@ -2,50 +2,42 @@
 
 import React, { useState } from 'react';
 import Button from "react-bootstrap/Button";
-import {Accordion, Card, Tooltip} from "react-bootstrap";
+import {Accordion} from "react-bootstrap";
 import Collapsible from 'react-collapsible';
-import {CopyToClipboard} from 'react-copy-to-clipboard';
-import {MdContentCopy, MdMoreHoriz, MdClose, MdInfoOutline, MdInfo} from "react-icons/md";
+import {MdClose, MdInfoOutline} from "react-icons/md";
 import { SiApollographql } from "react-icons/si";
 
 import "./Main.css"
 import axios from "axios";
 import Header from "../layout/Header";
 import Response from "../components/Response";
+import Query from "../components/Query";
 
 const Main = () => {
     const [apiSteps, setApiSteps] = useState([])
-    const [isCopied, setIsCopied] = useState(false)
 
     // Endpoints
     const restUri = "https://swapi.dev/api/people/1"
     const graphqlUri = "https://swapi-graphql.netlify.app/.netlify/functions/index"
 
-    // GraphQL Query to Try
-    const graphQuery = `query Person {
-                            person(personID: "1") {
-                                filmConnection {
-                                    films {
-                                    planetConnection {
-                                        planets {
-                                            name
-                                            climates
-                                            population
-                                        }
-                                    }
-                                }
-                            }
-                          }
-                        }`
-
-
-    // Copy to clipboard
-    const onCopyText = () => {
-        setIsCopied(true);
-        setTimeout(() => {
-            setIsCopied(false);
-        }, 1500);
-    };
+// GraphQL Query to Try
+const graphQuery = `
+query Person { 
+    person(personID: "1") {
+        filmConnection {
+            films { 
+                planetConnection {
+                    planets {
+                        name
+                        climates
+                        population
+                    }
+                }
+            }
+        }
+    }
+}
+`
 
     // Update steps state
     const updateSteps = (step) => {
@@ -199,8 +191,21 @@ const Main = () => {
                                 </div>
                                 <div className="">
                                     I'm using the following public endpoints:
-                                    <a href="https://swapi.dev/" className="">REST</a>
-                                    <a href="https://studio.apollographql.com/public/star-wars-swapi/home?variant=current" className="">GraphQL</a>
+                                    <a
+                                        href="https://swapi.dev/"
+                                        target="_blank"
+                                        rel="noreferrer"
+                                    >
+                                        REST
+                                    </a>
+
+                                    <a
+                                        href="https://studio.apollographql.com/public/star-wars-swapi/home?variant=current"
+                                        target="_blank"
+                                        rel="noreferrer"
+                                    >
+                                        GraphQL
+                                    </a>
                                 </div>
                                 <div className="">
                                     The use case is simple. We want to fetch the following information where the character is <b>Luke Skywalker</b>:
@@ -230,28 +235,26 @@ const Main = () => {
                                         easing={'cubic-bezier(0.175, 0.885, 0.32, 2.275)'}
                                         triggerWhenOpen={<MdClose data-bs-toggle="tooltip" data-bs-placement="top" title="Close"/>}
                                     >
-                                        <div className="p-2 mt-2 graphql-info">
+                                        <div className="p-2 mt-2">
                                             This is the GraphQL query that I'm using:
-                                            <div className="code shadowit mt-3">
-                                                {graphQuery}
-                                                <div className="text-end mt-1">
-                                                    <CopyToClipboard
-                                                        text={graphQuery}
-                                                        onCopy={onCopyText}
-                                                    >
-                                                        {isCopied ? <span style={{color: 'red'}}>Copied</span> : <MdContentCopy data-bs-toggle="tooltip" data-bs-placement="top" title="Click to copy the query"/>}
-                                                    </CopyToClipboard>
-                                                </div>
+                                            <div className="text-start shadowit mt-3">
+                                                <Query
+                                                    code={graphQuery}
+                                                    language="graphql"
+                                                    showLineNumbers={false}
+                                                />
                                             </div>
-                                            <div className="p-0">
+                                            <div className="p-0 mt-3">
                                                 <a
                                                     href="https://studio.apollographql.com/public/star-wars-swapi/explorer?variant=current"
                                                     target="_blank"
                                                     className="btn m-0 p-0 mb-1"
+                                                    rel="noreferrer"
                                                 >
-                                                    <SiApollographql data-bs-toggle="tooltip"
-                                                                     data-bs-placement="top"
-                                                                     title="Launch Apollo Studio" />
+                                                    <SiApollographql
+                                                        data-bs-toggle="tooltip"
+                                                        data-bs-placement="top"
+                                                        title="Launch Apollo Studio" />
                                                 </a>
                                             </div>
 
@@ -259,10 +262,10 @@ const Main = () => {
                                         </div>
                                     </Collapsible>
                                 </div>
-                                <div className="p-4">
+                                <div className="mt-2">
                                     Click on the button below to fetch the information using GraphQL.
                                 </div>
-                                <div className="mt-2">
+                                <div className="mt-4">
                                     <Button size="md" variant="warning" className="action-buttons shadowit" onClick={onClickGraphQLHandler}>Call API using GraphQL</Button>
                                 </div>
                             </Accordion.Body>
