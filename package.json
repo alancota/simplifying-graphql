@@ -20,7 +20,8 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "node src/utils/buildnum.js && react-scripts build",
+    "deploy:prod": "react-scripts build && netlify deploy --prod --site simplifying-graphql -d build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },

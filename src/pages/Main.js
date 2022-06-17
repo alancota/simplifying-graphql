@@ -6,12 +6,15 @@ import {Accordion} from "react-bootstrap";
 import Collapsible from 'react-collapsible';
 import {MdClose, MdInfoOutline} from "react-icons/md";
 import { SiApollographql } from "react-icons/si";
+import axios from "axios";
 
 import "./Main.css"
-import axios from "axios";
+
+import metadata from "../utils/metadata.json"
 import Header from "../layout/Header";
 import Response from "../components/Response";
 import Query from "../components/Query";
+import Footer from "../layout/Footer";
 
 const Main = () => {
     const [apiSteps, setApiSteps] = useState([])
@@ -277,6 +280,11 @@ query Person {
             {/* Present the Response component */}
             <div className="response p-1">
                 <Response data={apiSteps}/>
+            </div>
+
+            {/*Footer*/}
+            <div className="footer justify-content-center p-1">
+                <Footer />
             </div>
         </div>
     )
