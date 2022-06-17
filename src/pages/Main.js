@@ -2,10 +2,10 @@
 
 import React, { useState } from 'react';
 import Button from "react-bootstrap/Button";
-import {Accordion, Tooltip} from "react-bootstrap";
+import {Accordion, Card, Tooltip} from "react-bootstrap";
 import Collapsible from 'react-collapsible';
 import {CopyToClipboard} from 'react-copy-to-clipboard';
-import {MdContentCopy, MdMoreHoriz, MdClose} from "react-icons/md";
+import {MdContentCopy, MdMoreHoriz, MdClose, MdInfoOutline, MdInfo} from "react-icons/md";
 import { SiApollographql } from "react-icons/si";
 
 import "./Main.css"
@@ -189,7 +189,10 @@ const Main = () => {
                 <div className="action_section ms-1 me-1">
                     <Accordion flush defaultActiveKey="0" alwaysOpen>
                         <Accordion.Item eventKey="0">
-                            <Accordion.Header>About this demo</Accordion.Header>
+                            <div className="sidebar-header">
+                                <Accordion.Header>Start Here</Accordion.Header>
+                            </div>
+
                             <Accordion.Body>
                                 <div className="p-4">
                                     I built this React App to make it easier to demonstrate some differences between REST and GraphQL when fetching data from an API.
@@ -223,7 +226,7 @@ const Main = () => {
                                 <div className="trigger">
                                     <Collapsible
                                         transitionTime={400}
-                                        trigger={<MdMoreHoriz data-bs-toggle="tooltip" data-bs-placement="top" title="Click to see more about the query"/>}
+                                        trigger={<MdInfoOutline data-bs-toggle="tooltip" data-bs-placement="top" title="Click to see more about the query"/>}
                                         easing={'cubic-bezier(0.175, 0.885, 0.32, 2.275)'}
                                         triggerWhenOpen={<MdClose data-bs-toggle="tooltip" data-bs-placement="top" title="Close"/>}
                                     >

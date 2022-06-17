@@ -94,6 +94,10 @@ a {
     background-color: #daf9e2;
 }
 
+.sidebar-header {
+    background-color: #70c307;
+}
+
 @media only screen and (max-width: 550px) {
     .container {
         grid-template-columns: 1fr;
